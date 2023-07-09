@@ -1,6 +1,4 @@
-using api.Models;
-using api.Models.ApiModels;
-using api.Models.RepositoryModels;
+using shared.Models.RepositoryModels;
 
 namespace api.repositories;
 

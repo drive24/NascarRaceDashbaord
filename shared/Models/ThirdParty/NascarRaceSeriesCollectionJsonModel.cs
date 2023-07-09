@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace api.Models.ThirdParty;
+namespace shared.Models.ThirdParty;
 
 public record NascarRaceSeriesCollectionJsonModel
 {

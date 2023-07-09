@@ -1,8 +1,7 @@
-using api.Models;
-using api.Models.ApiModels;
-using api.Models.RepositoryModels;
 using api.repositories;
 using Microsoft.AspNetCore.Mvc;
+using shared.Models.ApiModels;
+using shared.Models.RepositoryModels;
 
 namespace api.Controllers;
 

@@ -1,6 +1,4 @@
-using api.repositories;
-
-namespace api.Models.ApiModels;
+namespace shared.Models.ApiModels;
 
 public record RaceSeriesCollectionApiModel
 {

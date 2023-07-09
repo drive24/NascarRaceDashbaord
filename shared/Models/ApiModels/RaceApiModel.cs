@@ -1,4 +1,4 @@
-namespace api.Models;
+namespace shared.Models.ApiModels;
 
 public record RaceApiModel
 {

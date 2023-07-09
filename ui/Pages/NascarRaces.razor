@@ -1,0 +1,49 @@
+@page "/nascar-races"
+@using ui.Components.Organisms
+@using ui.Components.Molecules
+@inject HttpClient Http
+<h3>NascarRaces</h3>
+@if (_raceSeriesCollectionApiModel is null)
+{
+<p>...Loading</p>
+}
+else
+{
+    <ContainerFluid>
+        <div class="row align-items-start">
+            <ListGroup>
+                <ListItem >
+                    <h2>@_raceSeriesCollectionApiModel.CupSeries.Name</h2>
+                </ListItem>
+                @foreach(var r in _raceSeriesCollectionApiModel.CupSeries.Races)
+                {
+                    <ListItem>
+                        <h3>@r.RaceName</h3>
+                    </ListItem>
+                }
+            </ListGroup>
+            <ListGroup>
+                <ListItem>
+                    <h2>@_raceSeriesCollectionApiModel.XfinitySeries.Name</h2>
+                </ListItem>
+                @foreach(var r in _raceSeriesCollectionApiModel.XfinitySeries.Races)
+                {
+                    <ListItem>
+                        <h3>@r.RaceName</h3>
+                    </ListItem>
+                }
+            </ListGroup>
+            <ListGroup>
+                <ListItem>
+                    <h2>@_raceSeriesCollectionApiModel.TruckSeries.Name</h2>
+                </ListItem>
+                @foreach(var r in _raceSeriesCollectionApiModel.TruckSeries.Races)
+                {
+                    <ListItem>
+                        <h3>@r.RaceName</h3>
+                    </ListItem>
+                }
+            </ListGroup>
+        </div>
+    </ContainerFluid>
+}

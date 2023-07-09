@@ -1,4 +1,4 @@
-namespace api.Models.RepositoryModels;
+namespace shared.Models.RepositoryModels;
 
 public record SeriesRepositoryModel
 {

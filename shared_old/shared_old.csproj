@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>models</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\ApiModels\" />
+      <Folder Include="Models\RepositoryModels\" />
+      <Folder Include="Models\ThirdParty\" />
+    </ItemGroup>
+
+</Project>

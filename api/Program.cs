@@ -1,4 +1,3 @@
-using api.Models;
 using api.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.SupportNonNullableReferenceTypes());
 
+
 builder.Services.AddSingleton<IRaceRepository, RaceRepository>();
 
 var app = builder.Build();
@@ -19,7 +19,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    // Allow Cors
+    app.UseCors(builder => 
+            builder.AllowAnyOrigin() // development only origin policy.
+    );
 }
+
 
 app.UseHttpsRedirection();
 

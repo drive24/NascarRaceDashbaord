@@ -1,7 +1,5 @@
-using api.Models;
-using api.Models.ApiModels;
-using api.Models.RepositoryModels;
-using api.Models.ThirdParty;
+using shared.Models.RepositoryModels;
+using shared.Models.ThirdParty;
 
 namespace api.repositories;
 
