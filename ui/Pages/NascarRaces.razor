@@ -1,6 +1,7 @@
 @page "/nascar-races"
 @using ui.Components.Organisms
 @using ui.Components.Molecules
+@using ui.Components.Atoms
 @inject HttpClient Http
 <h3>NascarRaces</h3>
 @if (_raceSeriesCollectionApiModel is null)
@@ -12,35 +13,35 @@ else
     <ContainerFluid>
         <div class="row align-items-start">
             <ListGroup>
-                <ListItem >
+                <ListItem Classes=@(new [] {"list-item-yellow"})>
                     <h2>@_raceSeriesCollectionApiModel.CupSeries.Name</h2>
                 </ListItem>
                 @foreach(var r in _raceSeriesCollectionApiModel.CupSeries.Races)
                 {
-                    <ListItem>
-                        <h3>@r.RaceName</h3>
+                    <ListItem Classes=@(new []{"list-item-gray"})>
+                        <RaceContent Race="r"/>
                     </ListItem>
                 }
             </ListGroup>
             <ListGroup>
-                <ListItem>
+                <ListItem Classes=@(new []{"list-item-red"})>
                     <h2>@_raceSeriesCollectionApiModel.XfinitySeries.Name</h2>
                 </ListItem>
                 @foreach(var r in _raceSeriesCollectionApiModel.XfinitySeries.Races)
                 {
-                    <ListItem>
-                        <h3>@r.RaceName</h3>
+                    <ListItem Classes=@(new []{"list-item-gray"})>
+                        <RaceContent Race="r"/>
                     </ListItem>
                 }
             </ListGroup>
             <ListGroup>
-                <ListItem>
+                <ListItem Classes=@(new []{"list-item-blue"})>
                     <h2>@_raceSeriesCollectionApiModel.TruckSeries.Name</h2>
                 </ListItem>
                 @foreach(var r in _raceSeriesCollectionApiModel.TruckSeries.Races)
                 {
-                    <ListItem>
-                        <h3>@r.RaceName</h3>
+                    <ListItem Classes=@(new []{"list-item-gray"})>
+                        <RaceContent Race="r"/>
                     </ListItem>
                 }
             </ListGroup>

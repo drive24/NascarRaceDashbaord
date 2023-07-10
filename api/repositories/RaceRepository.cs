@@ -8,9 +8,9 @@ public class RaceRepository : IRaceRepository
     private const string CupSeriesName = "Cup Series";
     private const string XfinitySeriesName = "Xfinity Series";
     private const string CraftsmanTruckSeriesName = "Craftsman Truck Series";
-    
+
     private const string BasicRaceDatasetUri = "https://cf.nascar.com/cacher/2023/race_list_basic.json";
-    
+
     public async Task<RaceSeriesCollectionRepositoryModel> GetRacesForAllSeries()
     {
         using var client = new HttpClient();
@@ -40,17 +40,19 @@ public class RaceRepository : IRaceRepository
                     }
                 };
             }
-                
         }
-        
+
         // TODO: make a custom exception.
         throw new Exception("error getting races");
     }
 
     private static RaceRepositoryModel NascarRaceMapper(NascarRaceJsonModel race) => new()
-        {
-            Id = race.Id,
-            RaceName = race.RaceName
-        };
-    
+    {
+        Id = race.Id,
+        RaceName = race.RaceName,
+        RaceDate = race.RaceDate,
+        ScheduledDistance = race.ScheduledDistance,
+        ScheduledLaps = race.ScheduledLaps,
+        TrackName = race.TrackName
+    };
 }

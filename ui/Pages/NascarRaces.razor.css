@@ -1,0 +1,17 @@
+::deep .list-item-red {
+    background-color: red;
+}
+
+::deep .list-item-blue {
+    background-color: blue;
+}
+
+::deep .list-item-yellow {
+    background-color: yellow;
+}
+
+::deep .list-item-gray {
+    background-color: #41464b;
+    color: whitesmoke;
+}
+

@@ -45,5 +45,9 @@ public class RaceController : ControllerBase
     {
         Id = race.Id,
         RaceName = race.RaceName,
+        RaceDate = race.RaceDate,
+        ScheduledDistance = race.ScheduledDistance,
+        ScheduledLaps = race.ScheduledLaps,
+        TrackName = race.TrackName
     };
 }
