@@ -10,16 +10,28 @@ namespace api.Controllers;
 public class RaceController : ControllerBase
 {
     private readonly IRaceRepository _raceRepository;
+    private readonly ILogger<RaceController> _logger;
 
-    public RaceController(IRaceRepository raceRepository)
+    public RaceController(IRaceRepository raceRepository, ILogger<RaceController> logger)
     {
         _raceRepository = raceRepository;
+        _logger = logger;
     }
 
     [HttpGet]
     public async Task<ActionResult<RaceSeriesCollectionApiModel>> GetRaces()
     {
-        var series = await _raceRepository.GetRacesForAllSeries();
+        RaceSeriesCollectionRepositoryModel series;
+        try
+        {
+            series = await _raceRepository.GetRacesForAllSeries();
+        }
+        catch (Exception ex)
+        {
+            const string message = "error retrieving races from server";
+            _logger.LogError(ex, message);
+            return StatusCode(500, message);
+        }
 
         return new RaceSeriesCollectionApiModel
         {

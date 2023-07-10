@@ -4,43 +4,47 @@
 @using ui.Components.Atoms
 @inject HttpClient Http
 <h3>NascarRaces</h3>
-@if (_raceSeriesCollectionApiModel is null)
+@if (Error is not null)
 {
-<p>...Loading</p>
+    <p>...@Error Please Refresh.</p>
+}
+else if (_raceSeriesCollectionApiModel is null)
+{
+    <p>...Loading</p>
 }
 else
 {
     <ContainerFluid>
         <div class="row align-items-start">
             <ListGroup>
-                <ListItem Classes=@(new [] {"list-item-yellow"})>
+                <ListItem Classes=@(new[] { "list-item-yellow" })>
                     <h2>@_raceSeriesCollectionApiModel.CupSeries.Name</h2>
                 </ListItem>
-                @foreach(var r in _raceSeriesCollectionApiModel.CupSeries.Races)
+                @foreach (var r in _raceSeriesCollectionApiModel.CupSeries.Races)
                 {
-                    <ListItem Classes=@(new []{"list-item-gray"})>
+                    <ListItem Classes=@(new[] { "list-item-gray" })>
                         <RaceContent Race="r"/>
                     </ListItem>
                 }
             </ListGroup>
             <ListGroup>
-                <ListItem Classes=@(new []{"list-item-red"})>
+                <ListItem Classes=@(new[] { "list-item-red" })>
                     <h2>@_raceSeriesCollectionApiModel.XfinitySeries.Name</h2>
                 </ListItem>
-                @foreach(var r in _raceSeriesCollectionApiModel.XfinitySeries.Races)
+                @foreach (var r in _raceSeriesCollectionApiModel.XfinitySeries.Races)
                 {
-                    <ListItem Classes=@(new []{"list-item-gray"})>
+                    <ListItem Classes=@(new[] { "list-item-gray" })>
                         <RaceContent Race="r"/>
                     </ListItem>
                 }
             </ListGroup>
             <ListGroup>
-                <ListItem Classes=@(new []{"list-item-blue"})>
+                <ListItem Classes=@(new[] { "list-item-blue" })>
                     <h2>@_raceSeriesCollectionApiModel.TruckSeries.Name</h2>
                 </ListItem>
-                @foreach(var r in _raceSeriesCollectionApiModel.TruckSeries.Races)
+                @foreach (var r in _raceSeriesCollectionApiModel.TruckSeries.Races)
                 {
-                    <ListItem Classes=@(new []{"list-item-gray"})>
+                    <ListItem Classes=@(new[] { "list-item-gray" })>
                         <RaceContent Race="r"/>
                     </ListItem>
                 }

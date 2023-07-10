@@ -1,6 +1,15 @@
 using api.repositories;
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()  
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+// add logger to the container.
+builder.Host.UseSerilog();
 
 // Add services to the container.
 
